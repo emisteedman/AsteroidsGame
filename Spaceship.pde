@@ -1,8 +1,8 @@
 class Spaceship extends Floater  
 {   
   public Spaceship(){  
-  myCenterX = 200;
-  myCenterY = 200; //holds center coordinates   
+  myCenterX = 250;
+  myCenterY = 250; //holds center coordinates   
   myDirectionX = 3;
   myDirectionY = 3; //holds x and y coordinates of the vector for direction of travel   
   myPointDirection = 3; 
