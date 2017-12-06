@@ -2,16 +2,25 @@
 
 Spaceship Bob = new Spaceship();
 Stars[] star = new Stars[(int)(Math.random()*150)+30];
-Asteroid[] ast = new Asteroid[(int)(Math.random()*10)+3];
+ArrayList<Asteroid> asteroidlist;
+//Asteroid[] ast = new Asteroid[(int)(Math.random()*10)+3];
+
 public void setup() 
 {
   //your code here
-  size(500, 500);
+  size(800, 800);
   for (int a = 0; a < star.length; a++) {
     star[a] = new Stars();
   }
-  for (int o = 0; o < ast.length; o++) {
-    ast[o] = new Asteroid();
+  asteroidlist = new ArrayList<Asteroid>();
+  for(int y = 0; y < (int)(Math.random()*10)+5; y++){
+    asteroidlist.add(y, new Asteroid());
+  }
+  //for (int o = 0; o < ast.length; o++) {
+    //ast[o] = new Asteroid();
+  //}
+  for(int a = 0; a < (int)((Math.random()*10)+3); a++){
+  asteroidlist.add(a, new Asteroid());
   }
 }
 public void draw() 
@@ -23,10 +32,17 @@ public void draw()
   for (int a = 0; a < star.length; a++) {
     star[a].show();
   }
-  for (int o = 0; o < ast.length; o++) {
-    ast[o].show();
-    ast[o].move();
+  for(int o = 0; o < asteroidlist.size(); o++){
+    asteroidlist.get(o).show();
+    asteroidlist.get(o).move();
+    if((dist(Bob.getX(),Bob.getY(),asteroidlist.get(o).getX(),asteroidlist.get(o).getY()) <= 20)){
+      asteroidlist.remove(o);
+    }
   }
+  //for (int o = 0; o < ast.length; o++) {
+    //ast[o].show();
+    //ast[o].move();
+  //}
 }
 
 public void keyPressed()

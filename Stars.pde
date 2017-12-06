@@ -4,10 +4,11 @@ class Stars //note that this class does NOT extend Floater
   int starX, starY;
   
   public Stars(){
-   starX = (int)(Math.random()*500);
-   starY = (int)(Math.random()*500);
+   starX = (int)(Math.random()*800);
+   starY = (int)(Math.random()*800);
   }
   public void show(){
+   fill(255);
    ellipse(starX, starY, f, f); 
   }
 }
