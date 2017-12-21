@@ -51,7 +51,7 @@ class Spaceship extends Floater
     myPointDirection = degrees;
   }
   public double getPointDirection(){
-    return getPointDirection();
+    return myPointDirection;
   }
 }
   
